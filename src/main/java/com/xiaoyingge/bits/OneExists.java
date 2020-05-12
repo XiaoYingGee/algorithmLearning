@@ -4,6 +4,7 @@ import java.util.Random;
 
 /**
  * 一个数组里只有一个数出现奇数次，找出来
+ * 主要思想是 N^N=0 n^0=n
  *
  * @author Xiaoyingge
  * @description

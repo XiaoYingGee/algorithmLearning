@@ -14,10 +14,12 @@ public final class BubbleSort extends AbstractSort {
 
     @Override
     public void sort (int[] arr) {
+        //i的递增让j的循环范围不断减小
         for (int i = 0; i < arr.length; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] > arr[j]) {
-                    swap(arr, i, j);
+            //这里之所以减1是因为比较的是J和J+1，当走到size-2的时候，J+1=size-1,到达数组边界
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    swap(arr, j, j + 1);
                 }
             }
         }

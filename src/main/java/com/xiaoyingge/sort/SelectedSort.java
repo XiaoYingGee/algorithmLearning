@@ -25,7 +25,6 @@ public final class SelectedSort extends AbstractSort {
             //交换数据
             swap(arr, i, minIndex);
         }
-
     }
 
     public static void main (String[] args) {
@@ -41,6 +40,13 @@ public final class SelectedSort extends AbstractSort {
             }
         }
         System.out.println("over");
+    }
+
+    public void m () {
+        long start = System.currentTimeMillis();
+        //do something
+        long end = System.currentTimeMillis();
+        System.out.println("程序运行了" + (end - start) + "MS");
     }
 
 }

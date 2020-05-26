@@ -1,5 +1,7 @@
 /.idea/
 .idea
 /.idea
+/target
 /target/classes/com/xiaoyingge/binarysearch/
 /target/classes/com/xiaoyingge/
+/target/classes/META-INF/

@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 /**
  * 归并排序算法，分而治之思想，将数组拆为不可拆分的组排好序再合并
+ * 算法复杂度o(NlogN)
  *
  * @author Xiaoyingge
  * @description
@@ -24,7 +25,7 @@ public class MergeSort extends AbstractSort {
         if (start == end) {
             return;
         }
-        int mid = start + (start - end) >> 1;
+        int mid = start + ((start - end) >> 1);
         //从左到中间有序
         process(arr, start, mid);
         //从中点到右有序
@@ -38,7 +39,7 @@ public class MergeSort extends AbstractSort {
         int[] tmp = new int[right - left + 1];
         int i = 0;
         int leftIndex = left;
-        int rightIndex = mid;
+        int rightIndex = mid + 1;
         //只要没有任意指针越界,就谁小复制到新数组里
         while (leftIndex <= mid && rightIndex <= right) {
             tmp[i++] = arr[leftIndex] < arr[rightIndex] ? arr[leftIndex++] : arr[rightIndex++];

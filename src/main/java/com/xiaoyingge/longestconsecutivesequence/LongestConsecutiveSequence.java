@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 /**
- * 找到最长连续序列
+ * 找到最长连续序列，在找出一组无序的数字中可以串起来的数字
  *
  * @author Xiaoyingge
  * @description

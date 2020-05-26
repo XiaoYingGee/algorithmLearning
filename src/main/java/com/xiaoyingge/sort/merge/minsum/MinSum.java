@@ -1,22 +1,20 @@
-package com.xiaoyingge.desccouple;
+package com.xiaoyingge.sort.merge.minsum;
 
 /**
- * 降序对问题 即数与右边的任意小于自己的数组成一对降序对
- * 3,7,2,5 中 降序对有  3-2  7-2  7-5
- * 本质上还是一个排序算法，
+ * 求小和，即将所有左侧比自己小的数的和加起来就是小和
  *
  * @author Xiaoyingge
  * @description
- * @date 2020/5/25 20:25
+ * @date 2020/5/25 20:02
  */
-public class DescCouple {
+public class MinSum {
 
     public static void main (String[] args) {
-        int descCouple = new DescCouple().getDescCouple(new int[]{3, 1, 7, 0, 2});
-        System.out.println(descCouple);
+        int minSum = new MinSum().getMinSum(new int[]{4, 3, 2, 5, 6, 8});
+        System.out.println(minSum);
     }
 
-    public int getDescCouple (int[] arr) {
+    public int getMinSum (int[] arr) {
         int left = 0;
         int right = arr.length - 1;
         return process(arr, left, right);
@@ -30,7 +28,6 @@ public class DescCouple {
         return process(arr, left, mid) +
                 process(arr, mid + 1, right) +
                 merge(arr, left, right, mid);
-
     }
 
     private int merge (int[] arr, int left, int right, int mid) {
@@ -40,8 +37,8 @@ public class DescCouple {
         int rightIndex = mid + 1;
         int result = 0;
         while (leftIndex <= mid && rightIndex <= right) {
-            //核心都是在计算这里，在左侧有数大于右侧时，则左侧所有数均大于右侧，形成逆序对
-            result += (arr[leftIndex] > arr[rightIndex] ? mid - leftIndex + 1 : 0);
+            //因为此时左右两侧的数据都已经排序完成，因此只要左指钍指向的数小于右指针的指向，则右指针后面的数都比左边的数大
+            result += arr[leftIndex] < arr[rightIndex] ? (right - rightIndex + 1) * arr[leftIndex] : 0;
             tmp[index++] = arr[leftIndex] < arr[rightIndex] ? arr[leftIndex++] : arr[rightIndex++];
         }
         while (leftIndex <= mid) {

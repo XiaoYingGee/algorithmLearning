@@ -1,4 +1,4 @@
-package com.xiaoyingge.sort;
+package com.xiaoyingge.sort.bubble;
 
 import com.xiaoyingge.common.AbstractSort;
 import java.util.Arrays;

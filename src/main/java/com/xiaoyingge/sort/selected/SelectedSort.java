@@ -1,4 +1,4 @@
-package com.xiaoyingge.sort;
+package com.xiaoyingge.sort.selected;
 
 import com.xiaoyingge.common.AbstractSort;
 import java.util.Arrays;

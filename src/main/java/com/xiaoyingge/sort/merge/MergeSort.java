@@ -1,6 +1,7 @@
-package com.xiaoyingge.sort;
+package com.xiaoyingge.sort.merge;
 
 import com.xiaoyingge.common.AbstractSort;
+import com.xiaoyingge.sort.selected.SelectedSort;
 import java.util.Arrays;
 
 /**

@@ -8,4 +8,7 @@ package com.xiaoyingge.common;
 public interface Sort {
 
     void sort (int[] arr);
+
+    int sortWithReturn (int[] arr, int left, int right);
+
 }

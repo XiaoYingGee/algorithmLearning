@@ -10,17 +10,6 @@ import java.util.Random;
  */
 public abstract class AbstractSort implements Sort {
 
-    protected void swap (int[] arr, int i, int minIndex) {
-        //数据一样没必要交换
-        if (i == minIndex) {
-            return;
-        }
-        //数据换位
-        arr[i] = arr[i] ^ arr[minIndex];
-        arr[minIndex] = arr[i] ^ arr[minIndex];
-        arr[i] = arr[i] ^ arr[minIndex];
-    }
-
     public int[] getRandomArr (int bounds, int numRange) {
         Random random = new Random();
         int numCount = random.nextInt(bounds);
@@ -36,4 +25,22 @@ public abstract class AbstractSort implements Sort {
         return Arrays.copyOf(arr, arr.length);
     }
 
+    @Override
+    public void sort (int[] arr) {
+
+    }
+
+    @Override
+    public int sortWithReturn (int[] arr, int left, int right) {
+        return 0;
+    }
+
+    protected void swap (int[] arr, int i, int j) {
+        if (i == j) {
+            return;
+        }
+        arr[i] = arr[i] ^ arr[j];
+        arr[j] = arr[i] ^ arr[j];
+        arr[i] = arr[i] ^ arr[j];
+    }
 }

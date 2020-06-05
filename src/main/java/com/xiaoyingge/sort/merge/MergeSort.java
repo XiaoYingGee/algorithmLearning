@@ -1,7 +1,7 @@
 package com.xiaoyingge.sort.merge;
 
 import com.xiaoyingge.common.AbstractSort;
-import com.xiaoyingge.sort.selected.SelectedSort;
+import com.xiaoyingge.sort.selection.SelectionSort;
 import java.util.Arrays;
 
 /**
@@ -61,7 +61,7 @@ public class MergeSort extends AbstractSort {
     }
 
     public static void main (String[] args) {
-        AbstractSort sort = new SelectedSort();
+        AbstractSort sort = new SelectionSort();
         int[] randomArr = sort.getRandomArr(100 * 100 * 10, 1000);
         int[] copyArr = sort.copyArr(randomArr);
         sort.sort(randomArr);

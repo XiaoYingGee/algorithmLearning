@@ -39,6 +39,7 @@ public abstract class AbstractSort implements Sort {
         if (i == j) {
             return;
         }
+//        System.out.println("swap " + arr[i] + "," + arr[j]);
         arr[i] = arr[i] ^ arr[j];
         arr[j] = arr[i] ^ arr[j];
         arr[i] = arr[i] ^ arr[j];

@@ -1,4 +1,4 @@
-package com.xiaoyingge.sort.selected;
+package com.xiaoyingge.sort.selection;
 
 import com.xiaoyingge.common.AbstractSort;
 import java.util.Arrays;
@@ -10,11 +10,11 @@ import java.util.Arrays;
  * @description
  * @date 2020/5/12 19:22
  */
-public final class SelectedSort extends AbstractSort {
+public final class SelectionSort extends AbstractSort {
 
     @Override
     public void sort (int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
             for (int j = i + 1; j < arr.length; j++) {
                 //如果新索引上的数小于当前最小索引上的数，更新索引
@@ -28,8 +28,9 @@ public final class SelectedSort extends AbstractSort {
     }
 
     public static void main (String[] args) {
-        AbstractSort sort = new SelectedSort();
+        AbstractSort sort = new SelectionSort();
         int[] randomArr = sort.getRandomArr(100 * 100 * 10, 1000);
+        randomArr = new int[]{6, 5, 4, 3, 2, 1};
         int[] copyArr = sort.copyArr(randomArr);
         sort.sort(randomArr);
         Arrays.sort(copyArr);
@@ -40,13 +41,6 @@ public final class SelectedSort extends AbstractSort {
             }
         }
         System.out.println("over");
-    }
-
-    public void m () {
-        long start = System.currentTimeMillis();
-        //do something
-        long end = System.currentTimeMillis();
-        System.out.println("程序运行了" + (end - start) + "MS");
     }
 
 }

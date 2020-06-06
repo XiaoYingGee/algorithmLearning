@@ -8,7 +8,7 @@ import lombok.Data;
  * @date 2020/5/14 11:19
  */
 @Data
-public class SimpleLinkedList {
+public class ReverseSimpleLinkedList {
 
     private static class Node {
 
@@ -46,7 +46,7 @@ public class SimpleLinkedList {
             head = head.next;
         }
         head = node1;
-        SimpleLinkedList simpleLinkedList = new SimpleLinkedList();
+        ReverseSimpleLinkedList simpleLinkedList = new ReverseSimpleLinkedList();
         Node newHead = simpleLinkedList.reverseLinkedList(head);
         while (newHead != null) {
             System.out.println(newHead.value);

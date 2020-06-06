@@ -1,9 +1,8 @@
 package com.xiaoyingge.binarysearch;
 
-import java.util.Random;
-
 /**
- * 二分查找一个不重复的数据出来
+ * 一个不重复的数组，二分查找一个数
+ * 因此只要二分后命中要的数 就可以停止计算
  *
  * @author Xiaoyingge
  * @description
@@ -29,19 +28,16 @@ public class BsExists {
                 left = mid + 1;
             }
         }
+        //这句也可以不写，把上面的while条件改为<=就可以
+        if (arr[left] == randomIndex) {
+            System.out.println("found");
+        }
     }
 
     private static int[] getArr () {
-        Random random = new Random();
-        int range = random.nextInt(100 * 100 * 100);
-        System.out.println("range is " + range);
-        randomIndex = random.nextInt(range);
-        System.out.println("randomIndex is " + randomIndex);
-        int[] result = new int[range];
-        for (int i = 0; i < range; i++) {
-            result[i] = i;
-        }
-        return result;
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        randomIndex = 9;
+        return arr;
     }
 
 }

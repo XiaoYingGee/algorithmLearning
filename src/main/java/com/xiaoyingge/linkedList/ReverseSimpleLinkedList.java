@@ -1,5 +1,6 @@
 package com.xiaoyingge.linkedList;
 
+import com.xiaoyingge.linkedList.SimpleLinkedList.Node;
 import lombok.Data;
 
 /**
@@ -9,13 +10,6 @@ import lombok.Data;
  */
 @Data
 public class ReverseSimpleLinkedList {
-
-    private static class Node {
-
-        private int value;
-
-        private Node next;
-    }
 
     public Node reverseLinkedList (Node head) {
         Node prev = null;
@@ -30,24 +24,7 @@ public class ReverseSimpleLinkedList {
     }
 
     public static void main (String[] args) {
-        Node node3 = new Node();
-        node3.value = 3;
-
-        Node node2 = new Node();
-        node2.value = 2;
-        node2.next = node3;
-
-        Node node1 = new Node();
-        node1.value = 1;
-        node1.next = node2;
-        Node head = node1;
-        while (head != null) {
-            System.out.println(head.value);
-            head = head.next;
-        }
-        head = node1;
-        ReverseSimpleLinkedList simpleLinkedList = new ReverseSimpleLinkedList();
-        Node newHead = simpleLinkedList.reverseLinkedList(head);
+        Node newHead = new SimpleLinkedList().getRandomLinkedList(100, 100);
         while (newHead != null) {
             System.out.println(newHead.value);
             newHead = newHead.next;

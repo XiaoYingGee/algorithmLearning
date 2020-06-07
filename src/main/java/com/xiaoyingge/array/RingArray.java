@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
+ * 类似于disrupted的环形数组实现
+ *
  * @author Xiaoyingge
  * @description
  * @date 2020/6/7 19:03

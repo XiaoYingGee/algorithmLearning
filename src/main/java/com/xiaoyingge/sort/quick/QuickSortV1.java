@@ -30,28 +30,33 @@ public class QuickSortV1 extends AbstractSort {
 
     @Override
     public void sort (int[] arr) {
-        partition(arr, 0, arr.length - 1);
+        process(arr, 0, arr.length - 1);
     }
 
-    public void partition (int[] arr, int left, int right) {
+    public void process (int[] arr, int left, int right) {
         if (left >= right) {
             return;
         }
         //使用partition算法 ，求出中点位置，再求两侧
-        int mid = sortWithReturn(arr, left, right);
-        partition(arr, left, mid - 1);
-        partition(arr, mid + 1, right);
+        int mid = partition(arr, left, right);
+        process(arr, left, mid - 1);
+        process(arr, mid + 1, right);
     }
 
-    @Override
-    public int sortWithReturn (int[] arr, int left, int right) {
+    public int partition (int[] arr, int left, int right) {
+        if (left > right) {
+            return -1;
+        }
+        if (left == right) {
+            return left;
+        }
         // 左边界
         int leftIndex = left - 1;
         //对数
         int num = arr[right];
         for (int i = left; i < right; i++) {
-            //只要当前数比对数小，与小于区相邻的数交换
-            if (arr[i] < num) {
+            //只要当前数小于等于对数，与小于区相邻的数交换
+            if (arr[i] <= num) {
                 //++left即小于区的相邻数
                 swap(arr, ++leftIndex, i);
             }

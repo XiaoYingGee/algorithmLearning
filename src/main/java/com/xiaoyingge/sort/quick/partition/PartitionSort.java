@@ -17,19 +17,26 @@ public class PartitionSort {
         }
     }
 
-    public void partition (int[] arr, int left, int right) {
+    public int partition (int[] arr, int left, int right) {
+        if (left > right) {
+            return -1;
+        }
+        if (left == right) {
+            return left;
+        }
         // 左边界
         int leftIndex = left - 1;
         //对数
         int num = arr[right];
         for (int i = left; i < right; i++) {
-            //只要当前数比对数小，与小于区相邻的数交换
-            if (arr[i] < num) {
+            //只要当前数小于等于对数，与小于区相邻的数交换
+            if (arr[i] <= num) {
                 //++left即小于区的相邻数
                 swap(arr, ++leftIndex, i);
             }
         }
         swap(arr, ++leftIndex, right);
+        return leftIndex;
     }
 
     private void swap (int[] arr, int i, int j) {

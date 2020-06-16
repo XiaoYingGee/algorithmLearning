@@ -30,16 +30,16 @@ public class QuickSortV3 extends AbstractSort {
 
     @Override
     public void sort (int[] arr) {
-        trueSort(arr, 0, arr.length - 1);
+        quickSort(arr, 0, arr.length - 1);
     }
 
-    public void trueSort (int[] arr, int left, int right) {
+    public void quickSort (int[] arr, int left, int right) {
         if (left >= right) {
             return;
         }
         int[] partition = partition(arr, left, right);
-        trueSort(arr, left, partition[0] - 1);
-        trueSort(arr, partition[1] + 1, right);
+        quickSort(arr, left, partition[0] - 1);
+        quickSort(arr, partition[1] + 1, right);
     }
 
     private int[] partition (int[] arr, int left, int right) {

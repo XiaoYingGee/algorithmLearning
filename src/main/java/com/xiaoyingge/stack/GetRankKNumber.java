@@ -30,7 +30,6 @@ public class GetRankKNumber {
             if ((i & 1) == 0) {
                 continue;
             }
-
             if (set.size() > k) {
                 if (set.last() < i) {
                     set.pollLast();

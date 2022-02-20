@@ -9,7 +9,15 @@ import java.security.SecureRandom;
  * @author XiaoYingGee
  * @date 2022/2/19 17:58
  */
-public class NumberArrayUtil {
+public class NumUtil {
+
+    public static int random() {
+        return createRandom().nextInt(Integer.MAX_VALUE);
+    }
+
+    public static int random(int max) {
+        return createRandom().nextInt(max);
+    }
 
     public static int[] createRandomArray(int nums) {
         return createRandomArray(nums, Integer.MAX_VALUE);
@@ -47,5 +55,15 @@ public class NumberArrayUtil {
                 throw new RuntimeException("数据不一致");
             }
         }
+        System.out.println("AMD YES!!!");
+    }
+
+    public static void swap(int[] arr, int from, int to) {
+        if (from == to) {
+            return;
+        }
+        int temp = arr[from];
+        arr[from] = arr[to];
+        arr[to] = temp;
     }
 }

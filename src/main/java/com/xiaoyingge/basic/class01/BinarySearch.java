@@ -12,10 +12,10 @@ import java.util.Arrays;
 public class BinarySearch {
 
     public static void main(String[] args) {
-        int[] arr = NumUtil.createRandomArray(100);
+        int[] arr = NumUtil.createRandomArray(7);
         Arrays.sort(arr);
         int findNum = NumUtil.random();
-        boolean result = search(arr, findNum, 0, arr.length - 1);
+        boolean result = search(arr, arr[1], 0, arr.length - 1);
         System.out.println(result ? "YES!!!" : "FUCK");
     }
 
@@ -23,33 +23,17 @@ public class BinarySearch {
         if (left == right) {
             return arr[left] == num;
         }
-        int mid = left + ((right - left) >> 1);
-        if (arr[mid] == num) {
-            return true;
-        } else if (arr[mid] > num) {
-            search(arr, num, left, mid - 1);
-        } else {
-            search(arr, num, mid + 1, right);
-        }
-        return false;
-    }
-
-    private static boolean search2(int[] sortedArr, int num, int left, int right) {
-        if (sortedArr == null || sortedArr.length == 0) {
-            return false;
-        }
-        // left..right
-        while (left < right) { // left..right 至少两个数的时候
+        // left..right至少两个数的时候
+        while (left < right) {
             int mid = left + ((right - left) >> 1);
-            if (sortedArr[mid] == num) {
+            if (arr[mid] == num) {
                 return true;
-            } else if (sortedArr[mid] > num) {
+            } else if (arr[mid] > num) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
             }
         }
-        return sortedArr[left] == num;
+        return arr[left] == num;
     }
-
 }

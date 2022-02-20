@@ -1,4 +1,4 @@
-package com.xiaoyingge.sort;
+package com.xiaoyingge.basic.class04;
 
 import com.xiaoyingge.util.NumUtil;
 import java.util.Arrays;

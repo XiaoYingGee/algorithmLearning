@@ -1,4 +1,4 @@
-package com.xiaoyingge.practise;
+package com.xiaoyingge.basic.class05;
 
 import com.xiaoyingge.util.NumUtil;
 

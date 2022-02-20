@@ -1,4 +1,4 @@
-package com.xiaoyingge.sort;
+package com.xiaoyingge.basic.class05;
 
 /**
  * 快速排序
@@ -9,3 +9,4 @@ package com.xiaoyingge.sort;
 public class QuickSort {
 
 }
+

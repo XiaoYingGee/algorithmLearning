@@ -2,6 +2,8 @@ package com.xiaoyingge.util;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  * 数组生成器
@@ -65,5 +67,9 @@ public class NumUtil {
         int temp = arr[from];
         arr[from] = arr[to];
         arr[to] = temp;
+    }
+
+    public static void print(int[] arr) {
+        System.out.println(Arrays.stream(arr).mapToObj(String::valueOf).collect(Collectors.toList()));
     }
 }

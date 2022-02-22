@@ -64,9 +64,9 @@ public class NumUtil {
         if (from == to) {
             return;
         }
-        int temp = arr[from];
-        arr[from] = arr[to];
-        arr[to] = temp;
+        arr[from] = arr[to] ^ arr[from];
+        arr[to] = arr[to] ^ arr[from];
+        arr[from] = arr[to] ^ arr[from];
     }
 
     public static void print(int[] arr) {

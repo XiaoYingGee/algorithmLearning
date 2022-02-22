@@ -22,7 +22,8 @@ public class BubbleSort {
     private static void sort(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] > arr[j]) {
+                //需要保证稳定性
+                if (arr[j] < arr[i]) {
                     NumUtil.swap(arr, i, j);
                 }
             }

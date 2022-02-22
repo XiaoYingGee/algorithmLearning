@@ -74,7 +74,6 @@ public class Heap {
             index = maxSubIndex;
             left = 2 * index + 1;
         }
-
     }
 
 }

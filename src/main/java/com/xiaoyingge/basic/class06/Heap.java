@@ -1,6 +1,7 @@
 package com.xiaoyingge.basic.class06;
 
 import com.xiaoyingge.util.NumUtil;
+import com.xiaoyingge.util.PrintUtil;
 import lombok.Data;
 
 /**
@@ -44,12 +45,12 @@ public class Heap {
         for (int i = 0; i < 10; i++) {
             heap.push(NumUtil.random(100));
         }
-        NumUtil.print(heap.getHeap());
+        PrintUtil.print(heap.getHeap());
         for (int i = 0; i < 10; i++) {
             System.out.println("=====================");
             System.out.println("pop=" + heap.pop());
             System.out.println("=====================");
-            NumUtil.print(heap.getHeap());
+            PrintUtil.print(heap.getHeap());
         }
     }
 

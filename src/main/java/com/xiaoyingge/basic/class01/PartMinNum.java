@@ -1,6 +1,7 @@
 package com.xiaoyingge.basic.class01;
 
 import com.xiaoyingge.util.NumUtil;
+import com.xiaoyingge.util.PrintUtil;
 
 /**
  * 样本类型为左右数字不相同的乱序数组
@@ -14,7 +15,7 @@ public class PartMinNum {
     public static void main(String[] args) {
         int[] arr = NumUtil.createRandomArray(30, 10);
         int index = search(arr, 0, arr.length - 1);
-        NumUtil.print(arr);
+        PrintUtil.print(arr);
         System.out.println(index);
     }
 

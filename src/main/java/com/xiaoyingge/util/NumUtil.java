@@ -2,8 +2,6 @@ package com.xiaoyingge.util;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.Arrays;
-import java.util.stream.Collectors;
 
 /**
  * 数组生成器
@@ -34,7 +32,7 @@ public class NumUtil {
         return result;
     }
 
-    private static SecureRandom createRandom() {
+    public static SecureRandom createRandom() {
         try {
             return SecureRandom.getInstance("SHA1PRNG");
         } catch (NoSuchAlgorithmException e) {
@@ -69,7 +67,4 @@ public class NumUtil {
         arr[from] = arr[to] ^ arr[from];
     }
 
-    public static void print(int[] arr) {
-        System.out.println(Arrays.stream(arr).mapToObj(String::valueOf).collect(Collectors.toList()));
-    }
 }

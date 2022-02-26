@@ -1,6 +1,7 @@
 package com.xiaoyingge.basic.class01;
 
 import com.xiaoyingge.util.NumUtil;
+import com.xiaoyingge.util.PrintUtil;
 import java.util.Arrays;
 
 /**
@@ -16,7 +17,7 @@ public class BinarySearchNearLeft {
         Arrays.sort(arr);
         int findNum = NumUtil.random(10);
         int index = search(arr, findNum, 0, arr.length - 1);
-        NumUtil.print(arr);
+        PrintUtil.print(arr);
         System.out.println(findNum + "," + index);
     }
 

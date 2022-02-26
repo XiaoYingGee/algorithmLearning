@@ -14,12 +14,12 @@ public class NodeUtil {
 
     public static Node createSimpleNodeList(int size, int max) {
         int[] arr = NumUtil.createRandomArray(size, max);
-        Node head = new Node();
+        Node head = Node.simpleNode();
         Node point = head;
         int currentSize = 0;
         for (int i : arr) {
             point.setValue(i);
-            point.setNext(size > ++currentSize ? new Node() : null);
+            point.setNext(size > ++currentSize ? Node.simpleNode() : null);
             point = point.getNext();
         }
         return head;
@@ -31,16 +31,17 @@ public class NodeUtil {
 
     public static Node createDoubleNodeList(int size, int max) {
         int[] arr = NumUtil.createRandomArray(size, max);
-        Node head = new Node();
+        Node head = Node.doubleNode();
+        Node pointer = head;
         Node pre = null;
         for (int i = 0; i < arr.length; i++) {
-            head.setPre(pre);
-            head.setValue(arr[i]);
+            pointer.setPre(pre);
+            pointer.setValue(arr[i]);
             if (i != arr.length - 1) {
-                Node next = new Node();
-                head.setNext(next);
-                pre = head;
-                head = next;
+                Node next = Node.doubleNode();
+                pointer.setNext(next);
+                pre = pointer;
+                pointer = next;
             }
         }
         return head;

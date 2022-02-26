@@ -16,9 +16,17 @@ public class PrintUtil {
 
     public static void print(Node node) {
         Node pointer = node;
+        boolean notEnd = true;
+        boolean isDoubleNode = node.isDoubleNode();
         while (pointer != null) {
-            System.out.print(pointer.getValue() + " -> ");
-            pointer = pointer.getNext();
+            System.out.print(pointer.getValue() + (notEnd ? " -> " : " <- "));
+            if (pointer.getNext() == null && isDoubleNode && notEnd) {
+                notEnd = false;
+                System.out.println();
+                System.out.print(pointer.getValue() + " <- ");
+            }
+            pointer = notEnd ? pointer.getNext() : pointer.getPre();
+
         }
         System.out.println();
     }

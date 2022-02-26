@@ -15,6 +15,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class Node {
 
+    // 1单向 2双向
+    private int type;
     private Node pre;
     private Node next;
     private int value;
@@ -22,5 +24,29 @@ public class Node {
     @Override
     public String toString() {
         return String.valueOf(value);
+    }
+
+    public static Node simpleNode() {
+        return Node.builder()
+                .type(1)
+                .build();
+    }
+
+    public static Node simpleNode(int value, Node next) {
+        return Node.builder()
+                .type(1)
+                .next(next)
+                .value(value)
+                .build();
+    }
+
+    public static Node doubleNode() {
+        return Node.builder()
+                .type(2)
+                .build();
+    }
+
+    public boolean isDoubleNode() {
+        return this.type == 2;
     }
 }

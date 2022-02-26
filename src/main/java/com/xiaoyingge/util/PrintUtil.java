@@ -31,4 +31,21 @@ public class PrintUtil {
         System.out.println();
     }
 
+    public static void print(Node node, int size) {
+        int count = 0;
+        Node pointer = node;
+        boolean notEnd = true;
+        boolean isDoubleNode = node.isDoubleNode();
+        while (pointer != null && count++ != size) {
+            System.out.print(pointer.getValue() + (notEnd ? " -> " : " <- "));
+            if (pointer.getNext() == null && isDoubleNode && notEnd) {
+                notEnd = false;
+                System.out.println();
+                System.out.print(pointer.getValue() + " <- ");
+            }
+            pointer = notEnd ? pointer.getNext() : pointer.getPre();
+
+        }
+        System.out.println();
+    }
 }

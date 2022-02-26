@@ -14,12 +14,16 @@ public class NodeUtil {
 
     public static Node createSimpleNodeList(int size, int max) {
         int[] arr = NumUtil.createRandomArray(size, max);
+        return createSimpleNodeList(arr);
+    }
+
+    public static Node createSimpleNodeList(int[] arr) {
         Node head = Node.simpleNode();
         Node point = head;
         int currentSize = 0;
         for (int i : arr) {
             point.setValue(i);
-            point.setNext(size > ++currentSize ? Node.simpleNode() : null);
+            point.setNext(arr.length > ++currentSize ? Node.simpleNode() : null);
             point = point.getNext();
         }
         return head;

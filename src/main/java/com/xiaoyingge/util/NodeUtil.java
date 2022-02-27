@@ -1,6 +1,8 @@
 package com.xiaoyingge.util;
 
 import com.xiaoyingge.common.Node;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * @author XiaoYingGee
@@ -51,4 +53,66 @@ public class NodeUtil {
         return head;
     }
 
+    /**
+     * 使用先序数组构建数结构
+     *
+     * @param queue
+     */
+    public static Node createBinaryTree(Queue<Integer> queue) {
+        return createBinaryTree(queue, 1);
+    }
+
+    public static Node createBinaryTree(Queue<Integer> queue, int type) {
+        if (type == 1) {
+            return buildByLevel(queue);
+        } else if (type == 2) {
+            return buildPreTree(queue);
+        }
+        return buildByLevel(queue);
+    }
+
+    private static Node buildPreTree(Queue<Integer> queue) {
+        Integer value = queue.poll();
+        if (value == null) {
+            return null;
+        }
+        Node head = Node.binaryNode();
+        head.setValue(value);
+        head.setLeft(buildPreTree(queue));
+        head.setRight(buildPreTree(queue));
+        return head;
+    }
+
+    private static Node buildByLevel(Queue<Integer> queue) {
+        if (queue == null || queue.size() == 0) {
+            return null;
+        }
+        Node head = buildTreeNode(queue.poll());
+        Queue<Node> linkedList = new LinkedList<Node>();
+        if (head != null) {
+            linkedList.add(head);
+        }
+        Node node = null;
+        while (!linkedList.isEmpty()) {
+            node = linkedList.poll();
+            node.setLeft(buildTreeNode(queue.poll()));
+            node.setRight(buildTreeNode(queue.poll()));
+            if (node.getLeft() != null) {
+                linkedList.add(node.getLeft());
+            }
+            if (node.getRight() != null) {
+                linkedList.add(node.getRight());
+            }
+        }
+        return head;
+    }
+
+    private static Node buildTreeNode(Integer poll) {
+        if (poll == null) {
+            return null;
+        }
+        Node node = Node.binaryNode();
+        node.setValue(poll);
+        return node;
+    }
 }

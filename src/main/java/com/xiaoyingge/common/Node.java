@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class Node {
 
-    // 1单向 2双向
+    // 1单向 2双向 3二叉树
     private int type;
     private Node pre;
     private Node next;
@@ -38,6 +38,37 @@ public class Node {
                 .next(next)
                 .value(value)
                 .build();
+    }
+
+    public static Node binaryNode() {
+        return Node.builder()
+                .type(3)
+                .build();
+    }
+
+    public static Node binaryNode(int value, Node left, Node right) {
+        return Node.builder()
+                .pre(left)
+                .next(right)
+                .value(value)
+                .type(3)
+                .build();
+    }
+
+    public Node getLeft() {
+        return this.pre;
+    }
+
+    public Node getRight() {
+        return this.next;
+    }
+
+    public void setLeft(Node node) {
+        this.pre = node;
+    }
+
+    public void setRight(Node node) {
+        this.next = node;
     }
 
     public static Node doubleNode() {

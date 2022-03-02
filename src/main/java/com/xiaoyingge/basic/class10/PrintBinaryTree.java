@@ -16,7 +16,7 @@ import java.util.Queue;
 public class PrintBinaryTree {
 
     public static void main(String[] args) {
-        List<Integer> list = Lists.newArrayList(1, 2, 3, 4, null, null, 6, null, null, null, null);
+        List<Integer> list = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7);
         Queue<Integer> queue = Lists.newLinkedList(list);
         Node root = NodeUtil.createBinaryTree(queue);
         PrintUtil.print(root);
